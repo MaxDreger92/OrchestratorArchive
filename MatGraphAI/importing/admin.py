@@ -1,10 +1,10 @@
 from django.utils.safestring import mark_safe
 
-from matching.models import MatchingReport
+from importing.models import ImportingReport
 from django.contrib import admin
 
-@admin.register(MatchingReport)
-class MatchingReportAdmin(admin.ModelAdmin):
+@admin.register(ImportingReport)
+class ImportingReportAdmin(admin.ModelAdmin):
 
     list_display = ['date', 'type']
     list_filter = ('type', 'date')
