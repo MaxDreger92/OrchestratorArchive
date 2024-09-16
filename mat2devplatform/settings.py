@@ -64,13 +64,12 @@ INSTALLED_APPS = [
     'dal_select2',
     'mat2devplatform',
     'matching',
-    'usermanagement',
-    'importing',
-    'sdl',
+    'archivist',
     'matgraph',
     'graphutils',
     'colorfield',
     'corsheaders',
+    'usermanagement',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -150,12 +149,20 @@ ASGI_APPLICATION = 'mat2devplatform.asgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'django_db',
+    #     'USER': 'django_user',
+    #     'PASSWORD': 'herrklo1',
+    #     'HOST': 'localhost',
+    # },
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'django_db',
-        'USER': 'django_user',
-        'PASSWORD': 'herrklo1',
+        'NAME': 'django_test_db',
+        'USER': 'test_admin',  # This is the user you need to use
+        'PASSWORD': 'testpassword',
         'HOST': 'localhost',
+        'PORT': '5432',
     },
     'neo4j': {
         'ENGINE': '',
@@ -208,8 +215,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'mat2devplatform/static')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'frontend/build'),
-    os.path.join(BASE_DIR, 'matching/static'),
     ]
 # Media Files
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

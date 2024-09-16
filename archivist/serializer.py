@@ -1,0 +1,20 @@
+from rest_framework import serializers
+
+class ExperimentDataSerializer(serializers.Serializer):
+    id = serializers.IntegerField()
+    orig_id = serializers.IntegerField()
+    name = serializers.CharField(max_length=255)
+    exp_uuid = serializers.UUIDField()
+    status = serializers.CharField(max_length=10)
+    executor_expid = serializers.IntegerField()
+    start_time = serializers.DateTimeField(required=False, allow_null=True)
+    end_time = serializers.DateTimeField()
+    uid_node = serializers.CharField(max_length=255)
+    samples = serializers.JSONField()
+    module_progress = serializers.JSONField()
+    inputvals = serializers.JSONField()
+    scalaroutdata = serializers.JSONField()
+    nonscalaroutdata = serializers.JSONField(required=False, allow_null=True)
+    flatfiles = serializers.JSONField(required=False, allow_null=True)
+    executor_id = serializers.CharField(max_length=255)
+    campaign_id = serializers.CharField(max_length=255)

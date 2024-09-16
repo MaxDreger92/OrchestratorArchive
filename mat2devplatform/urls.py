@@ -32,16 +32,17 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.decorators.cache import never_cache
 
+from archivist.views import IngestExperimentDataView
+
 # Serve SPA index.html as a fallback
 spa_view = never_cache(TemplateView.as_view(template_name='index.html'))
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('default.urls')),
     #path('', include('matgraph.urls')),
     #path('', include('usermanagement.urls')),
-    path('', include('matching.urls')),
-    path('', include('importing.urls')),
+    path('ingest-experiment-data/', IngestExperimentDataView.as_view(), name='ingest-experiment-data'),
+
     # Catch-all for SPA
     path('', spa_view, name='app'),
 ]
